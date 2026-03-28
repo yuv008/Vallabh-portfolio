@@ -19,14 +19,14 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[var(--bg-primary)]/90 backdrop-blur-md border-b border-[var(--border-color)]"
+          ? "bg-[var(--bg-primary)]/95 backdrop-blur-md border-b border-[var(--border-color)] shadow-lg shadow-black/5"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a
           href="#"
-          className="font-[family-name:var(--font-heading)] text-lg font-bold text-accent tracking-tight"
+          className="font-[family-name:var(--font-heading)] text-lg font-bold gradient-text tracking-tight"
         >
           VW
         </a>
@@ -37,7 +37,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[var(--text-secondary)] hover:text-accent transition-colors duration-200"
+              className="text-sm text-[var(--text-muted)] hover:text-accent transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -50,7 +50,7 @@ export function Navbar() {
           <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="w-9 h-9 flex items-center justify-center rounded-lg border border-[var(--border-color)] cursor-pointer"
+            className="w-9 h-9 flex items-center justify-center rounded-lg border border-[var(--border-color)] hover:border-accent/50 cursor-pointer transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? (

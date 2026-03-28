@@ -4,43 +4,41 @@
   --font-sans: var(--font-inter);
   --font-heading: var(--font-space-grotesk);
 
-  --color-navy-950: #0F172A;
-  --color-navy-900: #1E293B;
-  --color-navy-800: #1a2744;
-  --color-navy-700: #334155;
-  --color-navy-600: #475569;
-  --color-navy-500: #64748B;
-  --color-navy-400: #94A3B8;
-  --color-navy-300: #CBD5E1;
-  --color-navy-200: #E2E8F0;
-  --color-navy-100: #F1F5F9;
-  --color-navy-50: #F8FAFC;
+  --color-accent: #D4A853;
+  --color-accent-light: #E8C882;
+  --color-accent-dark: #B8912E;
+  --color-accent-glow: rgba(212, 168, 83, 0.15);
 
-  --color-accent: #CA8A04;
-  --color-accent-light: #D4A853;
-  --color-accent-dark: #A16207;
+  --color-emerald: #34D399;
+  --color-emerald-dark: #059669;
 }
 
 /* Dark mode (default) */
 :root {
-  --bg-primary: #0F172A;
-  --bg-secondary: #1E293B;
-  --bg-card: #1a2744;
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-  --border-color: #334155;
+  --bg-primary: #09090B;
+  --bg-secondary: #111113;
+  --bg-card: #18181B;
+  --bg-card-hover: #1f1f23;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --border-color: #27272A;
+  --border-hover: #3f3f46;
+  --glow: rgba(212, 168, 83, 0.08);
 }
 
 /* Light mode */
 .light {
-  --bg-primary: #F8FAFC;
-  --bg-secondary: #F1F5F9;
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F4F4F5;
   --bg-card: #FFFFFF;
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --text-muted: #64748B;
-  --border-color: #E2E8F0;
+  --bg-card-hover: #FAFAFA;
+  --text-primary: #09090B;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  --border-color: #E4E4E7;
+  --border-hover: #D4D4D8;
+  --glow: rgba(212, 168, 83, 0.06);
 }
 
 html {
@@ -54,13 +52,9 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-* {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
 ::selection {
-  background-color: #CA8A04;
-  color: #0F172A;
+  background-color: #D4A853;
+  color: #09090B;
 }
 
 /* Scrollbar styling */
@@ -78,5 +72,27 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #CA8A04;
+  background: #D4A853;
+}
+
+/* Gradient accent line used in section headings */
+.accent-line {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #D4A853, #E8C882);
+  border-radius: 2px;
+  margin: 0 auto 1rem;
+}
+
+/* Card hover glow */
+.card-glow:hover {
+  box-shadow: 0 0 30px var(--glow), 0 0 60px rgba(212, 168, 83, 0.04);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #D4A853 0%, #E8C882 50%, #D4A853 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
