@@ -60,7 +60,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-block mb-8 px-4 py-1.5 rounded-full border border-[var(--border-accent)] bg-[var(--glow)] text-accent text-xs font-medium tracking-[0.2em] uppercase"
           >
-            Content Automation & Reporting Ops
+            Content Automation & Business Intelligence
           </motion.div>
 
           {/* Name — massive */}
