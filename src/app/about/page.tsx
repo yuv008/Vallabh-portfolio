@@ -29,15 +29,15 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start mb-20">
           {/* Photo */}
           <AnimateIn direction="right" className="lg:col-span-2 flex justify-center">
-            <div className="relative group">
-              <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-accent/30 via-accent/5 to-transparent blur-xl group-hover:blur-2xl transition-all duration-700 opacity-60 group-hover:opacity-100" />
-              <div className="relative w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden glow-card">
+            <div className="relative group w-full max-w-sm">
+              <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-accent/30 via-accent/5 to-transparent blur-xl group-hover:blur-2xl transition-all duration-700 opacity-60 group-hover:opacity-100" />
+              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden glow-card">
                 <Image
                   src="/profile.jpg"
                   alt="Vallabh Wattamwar"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 640px) 224px, 256px"
+                  sizes="(max-width: 1024px) 384px, 320px"
                 />
               </div>
             </div>
