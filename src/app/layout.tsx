@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { GrainTexture } from "@/components/GrainTexture";
+import { PageTransition } from "@/components/PageTransition";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,8 +42,13 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="min-h-screen flex flex-col antialiased">
+        <ThemeProvider>
+          <GrainTexture />
+          <Navbar />
+          <PageTransition>{children}</PageTransition>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

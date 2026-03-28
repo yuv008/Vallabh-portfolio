@@ -4,43 +4,55 @@
   --font-sans: var(--font-inter);
   --font-heading: var(--font-space-grotesk);
 
-  --color-accent: #D4A853;
-  --color-accent-light: #E8C882;
-  --color-accent-dark: #B8912E;
-  --color-accent-glow: rgba(212, 168, 83, 0.15);
-
-  --color-emerald: #34D399;
-  --color-emerald-dark: #059669;
+  --color-accent: #C5A55A;
+  --color-accent-light: #D4B96E;
+  --color-accent-dark: #A68B3C;
+  --color-platinum: #E8E4DB;
+  --color-rose-gold: #B76E79;
 }
 
-/* Dark mode (default) */
+/* ── Dark Mode (default) ────────────────────────── */
 :root {
-  --bg-primary: #09090B;
-  --bg-secondary: #111113;
-  --bg-card: #18181B;
-  --bg-card-hover: #1f1f23;
-  --text-primary: #FAFAFA;
-  --text-secondary: #A1A1AA;
-  --text-muted: #71717A;
-  --border-color: #27272A;
-  --border-hover: #3f3f46;
-  --glow: rgba(212, 168, 83, 0.08);
+  --bg-primary: #050505;
+  --bg-secondary: #0C0C0C;
+  --bg-card: #141414;
+  --bg-card-hover: #1A1A1A;
+  --bg-elevated: #1E1E1E;
+  --text-primary: #F5F5F0;
+  --text-secondary: #A8A8A0;
+  --text-muted: #6B6B63;
+  --border-color: #1F1F1F;
+  --border-hover: #2A2A2A;
+  --border-accent: rgba(197, 165, 90, 0.12);
+  --glow: rgba(197, 165, 90, 0.08);
+  --glow-strong: rgba(197, 165, 90, 0.15);
 }
 
-/* Light mode */
+/* ── Light Mode ────────────────────────────────── */
 .light {
-  --bg-primary: #FAFAFA;
-  --bg-secondary: #F4F4F5;
+  --bg-primary: #FAF9F6;
+  --bg-secondary: #F0EDE6;
   --bg-card: #FFFFFF;
-  --bg-card-hover: #FAFAFA;
-  --text-primary: #09090B;
-  --text-secondary: #52525B;
-  --text-muted: #71717A;
-  --border-color: #E4E4E7;
-  --border-hover: #D4D4D8;
-  --glow: rgba(212, 168, 83, 0.06);
+  --bg-card-hover: #FAF9F6;
+  --bg-elevated: #FFFFFF;
+  --text-primary: #0A0A0A;
+  --text-secondary: #4A4A42;
+  --text-muted: #8A8A80;
+  --border-color: #E5E2D9;
+  --border-hover: #D5D2C9;
+  --border-accent: rgba(197, 165, 90, 0.15);
+  --glow: rgba(197, 165, 90, 0.06);
+  --glow-strong: rgba(197, 165, 90, 0.12);
 }
 
+/* ── Registered custom property for conic gradient animation ── */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ── Base ────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
 }
@@ -49,50 +61,119 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-sans), system-ui, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
-  background-color: #D4A853;
-  color: #09090B;
+  background-color: #C5A55A;
+  color: #050505;
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
+/* ── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: #2A2A2A; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #C5A55A; }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #D4A853;
-}
-
-/* Gradient accent line used in section headings */
-.accent-line {
-  width: 48px;
-  height: 3px;
-  background: linear-gradient(90deg, #D4A853, #E8C882);
-  border-radius: 2px;
-  margin: 0 auto 1rem;
-}
-
-/* Card hover glow */
-.card-glow:hover {
-  box-shadow: 0 0 30px var(--glow), 0 0 60px rgba(212, 168, 83, 0.04);
-}
-
-/* Gradient text utility */
+/* ── Gradient Gold Text ─────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #D4A853 0%, #E8C882 50%, #D4A853 100%);
+  background: linear-gradient(135deg, #C5A55A 0%, #D4B96E 40%, #E8E4DB 60%, #D4B96E 80%, #C5A55A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ── Accent Underline ───────────────────────────── */
+.accent-line {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, #C5A55A, #D4B96E, #C5A55A);
+  border-radius: 1px;
+  margin: 0 auto 1rem;
+}
+
+/* ── Glassmorphism Card ─────────────────────────── */
+.glass-card {
+  background: rgba(20, 20, 20, 0.5);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(197, 165, 90, 0.06);
+  border-radius: 1rem;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(197, 165, 90, 0.1);
+}
+
+.glass-card:hover {
+  border-color: rgba(197, 165, 90, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 60px var(--glow);
+}
+
+/* ── Glow Card ──────────────────────────────────── */
+.glow-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--angle), transparent 40%, #C5A55A 50%, transparent 60%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: rotate-glow 6s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes rotate-glow {
+  to { --angle: 360deg; }
+}
+
+/* ── Outlined text (used behind headings) ───────── */
+.text-outlined {
+  -webkit-text-stroke: 1px rgba(197, 165, 90, 0.15);
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Floating gradient mesh circles ─────────────── */
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(60px, -40px) scale(1.05); }
+  50% { transform: translate(-30px, 60px) scale(0.95); }
+  75% { transform: translate(-60px, -20px) scale(1.02); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-50px, 50px) scale(1.03); }
+  66% { transform: translate(40px, -30px) scale(0.97); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, 40px); }
+}
+
+/* ── Reduced motion ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
